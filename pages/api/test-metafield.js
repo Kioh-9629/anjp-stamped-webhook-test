@@ -36,8 +36,12 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ message: 'Customer metafields updated successfully' });
 
-  } catch (error) {
-    console.error('❌ 메타필드 처리 오류:', error.response?.data || error);
-    return res.status(500).json({ message: 'Internal Server Error' });
+} catch (error) {
+  console.error('❌ 메타필드 처리 오류:', error.message);
+  if (error.response) {
+    console.error('🪵 응답 데이터:', error.response.data);
+    console.error('🪵 상태 코드:', error.response.status);
   }
+  return res.status(500).json({ message: 'Internal Server Error' });
+}
 }
