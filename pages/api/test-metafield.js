@@ -16,6 +16,9 @@ export default async function handler(req, res) {
   try {
     // 1. 이메일로 고객 찾기
     const customer = await findCustomerByEmail(email);
+    console.log('📦 찾은 고객:', customer);
+    console.log('📦 customerId:', customerId);
+    
     if (!customer) {
       return res.status(404).json({ message: 'Customer not found' });
     }
