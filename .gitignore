@@ -1,1 +1,6 @@
-node_modules\n.next\nout\n*.log\nbfg.jar
+node_modules/
+.next/
+out/
+*.log
+bfg.jar
+.env.local
