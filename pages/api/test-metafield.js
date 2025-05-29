@@ -17,13 +17,13 @@ export default async function handler(req, res) {
     // 1. 이메일로 고객 찾기
     const customer = await findCustomerByEmail(email);
     console.log('📦 찾은 고객:', customer);
-    console.log('📦 customerId:', customerId);
     
     if (!customer) {
       return res.status(404).json({ message: 'Customer not found' });
     }
 
     const customerId = customer.id;
+    console.log('📦 customerId:', customerId);
 
     // 2. 기존 메타필드 확인
     const metafields = await getCustomerMetafields(customerId);
