@@ -10,6 +10,7 @@ export default async function handler(req, res) {
   }
 
   const { email, height, weight } = req.body;
+  console.log('💬 받은 email:', email);
 
   try {
     // 1. 고객 조회
